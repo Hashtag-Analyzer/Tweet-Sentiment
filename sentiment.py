@@ -9,10 +9,7 @@ url = 'https://gateway-a.watsonplatform.net/calls' \
 def getSentiment(text):
     sentiment = json.dumps(alchemy_language_a.sentiment(text=text))
     sentiment = json.loads(sentiment)
-    if sentiment['docSentiment']['type'] == 'neutral':
-        return str(0);
-    else:
-        return str(sentiment['docSentiment']['score'])
+    return str(sentiment['docSentiment'])
 
 def getEmotion(text):
     emotion = json.dumps(alchemy_language_b.emotion(text=text))
